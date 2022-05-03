@@ -1,0 +1,15 @@
+{
+  "covid19Panel": "COVID-19 App",
+  "worldWide": "Worldwide",
+  "regional": "Regional",
+  "mostAffectedCountries": "Most Affected Countries",
+  "people": "People",
+  "faqs": "FAQS",
+  "donate": "DONATE",
+  "mythBusters": "MYTH BUSTERS",
+  "confirmed": "CONFIRMED",
+  "active": "ACTIVE",
+  "recovered": "RECOVERED",
+  "deaths": "DEATHS",
+  "countriesStatus": "Countries Status"
+}
