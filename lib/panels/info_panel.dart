@@ -1,6 +1,5 @@
 import 'package:covid19app/data_source.dart';
 import 'package:covid19app/pages/faqs.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
