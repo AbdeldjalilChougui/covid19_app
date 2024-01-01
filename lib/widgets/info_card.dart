@@ -5,12 +5,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class InfoCard extends StatelessWidget {
 
-  final String title;
-  final int effectedNum;
-  final Color iconColor;
-  final Function press;
+  final String? title;
+  final int? effectedNum;
+  final Color? iconColor;
+  final Function()? press;
   final cardColor;
-  final Map historyData;
+  final Map? historyData;
 
   InfoCard({this.title, this.effectedNum, this.iconColor, this.press, this.cardColor,this.historyData});
 
@@ -21,7 +21,7 @@ class InfoCard extends StatelessWidget {
         return Container(
           margin: EdgeInsets.all(5),
           child: GestureDetector(
-            onTap: press,
+            onTap: press!,
             child: Container(
               width: (MediaQuery.of(context).size.width / 2) - 10,
               decoration: BoxDecoration(
@@ -42,7 +42,7 @@ class InfoCard extends StatelessWidget {
                             height: 30,
                             width: 30,
                             decoration: BoxDecoration(
-                              color: iconColor.withOpacity(0.12),
+                              color: iconColor!.withOpacity(0.12),
                               shape: BoxShape.circle
                             ),
                             child: SvgPicture.asset(
@@ -54,7 +54,7 @@ class InfoCard extends StatelessWidget {
                           ),
                           SizedBox(width: 5,),
                           Text(
-                            title,
+                            title!,
                             maxLines: 1,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -76,7 +76,7 @@ class InfoCard extends StatelessWidget {
                                 children: [
                                   TextSpan(
                                     text: "$effectedNum \n",
-                                    style: Theme.of(context).textTheme.headline1.copyWith(fontWeight: FontWeight.bold),
+                                    style: Theme.of(context).textTheme.headline1!.copyWith(fontWeight: FontWeight.bold),
                                   ),
                                   TextSpan(
                                     text: "People",
@@ -91,8 +91,8 @@ class InfoCard extends StatelessWidget {
                           ),
                           Expanded(
                             child: LineChartReport(
-                              historyData: historyData,
-                              title: this.title,
+                              historyData: historyData!,
+                              title: this.title!,
                             ),
                           ),
                         ],
