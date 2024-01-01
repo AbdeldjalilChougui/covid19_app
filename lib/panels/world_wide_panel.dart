@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class WorldWidePanel extends StatelessWidget {
 
-  final Map worldWide;
-  final Map historyData;
+  final Map? worldWide;
+  final Map? historyData;
 
-  const WorldWidePanel({Key key, this.worldWide,this.historyData}) : super(key: key);
+  const WorldWidePanel({Key? key, this.worldWide,this.historyData}) : super(key: key);
 
 
   @override
@@ -22,7 +22,7 @@ class WorldWidePanel extends StatelessWidget {
         children: <Widget>[
           InfoCard(
             title: 'CONFIRMED',
-            effectedNum: worldWide['cases'],
+            effectedNum: worldWide!['cases'],
             iconColor: Colors.red,
             press: () {},
             cardColor: Colors.red[100],
@@ -30,7 +30,7 @@ class WorldWidePanel extends StatelessWidget {
           ),
           InfoCard(
             title: 'ACTIVE',
-            effectedNum: worldWide['active'],
+            effectedNum: worldWide!['active'],
             iconColor: Colors.blue,
             press: () {},
             cardColor: Colors.blue[100],
@@ -38,7 +38,7 @@ class WorldWidePanel extends StatelessWidget {
           ),
           InfoCard(
             title: 'RECOVERD',
-            effectedNum: worldWide['recovered'],
+            effectedNum: worldWide!['recovered'],
             iconColor: Colors.green,
             press: () {},
             cardColor: Colors.green[100],
@@ -46,7 +46,7 @@ class WorldWidePanel extends StatelessWidget {
           ),
           InfoCard(
             title: 'DEATHS',
-            effectedNum: worldWide['deaths'],
+            effectedNum: worldWide!['deaths'],
             iconColor: Colors.grey,
             press: () {},
             cardColor: Colors.grey[100],
@@ -60,12 +60,12 @@ class WorldWidePanel extends StatelessWidget {
 
 class StatusPanel extends StatelessWidget {
 
-  final Color panelColor;
-  final Color textColor;
-  final String title;
-  final String count;
+  final Color? panelColor;
+  final Color? textColor;
+  final String? title;
+  final String? count;
 
-  const StatusPanel({Key key, this.panelColor, this.textColor, this.title, this.count}) : super(key: key);@override
+  const StatusPanel({Key? key, this.panelColor, this.textColor, this.title, this.count}) : super(key: key);@override
 
 
   Widget build(BuildContext context) {
@@ -81,14 +81,14 @@ class StatusPanel extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center ,
         children: <Widget>[
-          Text(title,
+          Text(title!,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
                 color: textColor
             ),
           ),
-          Text(count,
+          Text(count!,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
