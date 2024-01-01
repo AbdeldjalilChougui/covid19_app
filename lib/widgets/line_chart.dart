@@ -2,8 +2,8 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class LineChartReport extends StatelessWidget {
-  final Map historyData;
-  final String title;
+  final Map? historyData;
+  final String? title;
 
   LineChartReport({this.historyData,this.title});
 
@@ -22,7 +22,7 @@ class LineChartReport extends StatelessWidget {
               isCurved: true,
               dotData: FlDotData(show: false),
               belowBarData: BarAreaData(show: false),
-              colors: [Color(0xFF0D8E53)],
+              color: Color(0xFF0D8E53),
               barWidth: 4,
             ),
           ],
@@ -50,8 +50,8 @@ class LineChartReport extends StatelessWidget {
       ];
     }
     else {
-      List<FlSpot> list = List<FlSpot>();
-      var map = Map<String, dynamic>.from(historyData[getName()]);
+      List<FlSpot> list = <FlSpot>[];
+      var map = Map<String, dynamic>.from(historyData![getName()]);
 
       int i = 0;
       for (var item in map.values) {
