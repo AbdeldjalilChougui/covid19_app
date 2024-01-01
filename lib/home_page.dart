@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  Map worldData;
+  Map? worldData;
 
   fetchWorldWideData() async {
     http.Response response = await http.get(Uri.parse('https://corona.lmao.ninja/v2/all'));
@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  List countriesData;
+  List? countriesData;
 
   fetchCountriesData() async {
     http.Response response = await http.get(
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  Map historyData;
+  Map? historyData;
 
   fetchHistoryData () async {
     http.Response response = await http.get(Uri.parse("https://corona.lmao.ninja/v2/historical/all"));
@@ -113,8 +113,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             worldData == null ? CircularProgressIndicator() : WorldWidePanel(
-              worldWide: worldData,
-              historyData: historyData,
+              worldWide: worldData!,
+              historyData: historyData!,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: 10,),
-            countriesData == null ? Container() : MostAffectedPanel(countryData: countriesData,),
+            countriesData == null ? Container() : MostAffectedPanel(countryData: countriesData!,),
             SizedBox(height:5,),
             InfoPanel(),
             SizedBox(height:10,),
