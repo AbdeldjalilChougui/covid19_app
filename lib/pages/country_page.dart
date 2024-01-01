@@ -9,7 +9,7 @@ class CountryPage extends StatefulWidget {
 
 class _CountryPageState extends State<CountryPage> {
 
-  List countriesData;
+  List? countriesData;
 
   fetchCountriesData() async {
     http.Response response = await http.get(
@@ -36,7 +36,7 @@ class _CountryPageState extends State<CountryPage> {
           ? Center(child: CircularProgressIndicator(),)
           :
       ListView.builder(
-          itemCount: countriesData == null ? 0 : countriesData.length,
+          itemCount: countriesData == null ? 0 : countriesData!.length,
           itemBuilder: (context, index) {
             return Container(
               height: 130,
@@ -44,7 +44,7 @@ class _CountryPageState extends State<CountryPage> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
-                  BoxShadow(color: Colors.grey[100],
+                  BoxShadow(color: Colors.grey.shade100,
                     offset: Offset(0,10),
                     blurRadius: 10
                   )
@@ -58,13 +58,13 @@ class _CountryPageState extends State<CountryPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          countriesData[index]['country'],
+                          countriesData![index]['country'],
                           style: TextStyle(
                               fontWeight: FontWeight.bold
                           ),
                         ),
                         Image.network(
-                          countriesData[index]['countryInfo']['flag'],
+                          countriesData![index]['countryInfo']['flag'],
                           height: 50,
                           width: 60,
                         )
@@ -77,23 +77,23 @@ class _CountryPageState extends State<CountryPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            'CONFIRMED:' + countriesData[index]['cases'].toString(),
+                            'CONFIRMED:' + countriesData![index]['cases'].toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.red),
                           ),
                           Text(
-                            'ACTIVE:' + countriesData[index]['active'].toString(),
+                            'ACTIVE:' + countriesData![index]['active'].toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.blue),
                           ),
-                          Text('RECOVERED:' + countriesData[index]['recovered'].toString(),
+                          Text('RECOVERED:' + countriesData![index]['recovered'].toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.green),
                           ),
-                          Text('DEATHS:' +countriesData[index]['deaths'].toString(),
+                          Text('DEATHS:' +countriesData![index]['deaths'].toString(),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey[800]),
